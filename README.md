@@ -12,7 +12,13 @@ sudo fallocate -l 8192M /var/lib/libvirt/images/ubuntu-16.04.img
 
 ## Create a VM using virt-install
 ```bash
-sudo virt-install
+sudo virt-install -n xenial -r 1024 \
+    --disk path=/var/lib/libvirt/images/ubuntu-16.04.img,bus=virtio,size=4 \
+    -c xenial-desktop-amd64.iso \
+    --network network=default,model=virtio \
+    --graphics vnc,listen=0.0.0.0 \
+    --vcpus 4 \ 
+    --noautoconsole -v
 ```
 
 ## Control guest CPU & NUMA with kvm/xen
