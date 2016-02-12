@@ -21,6 +21,21 @@ sudo virt-install -n xenial -r 1024 \
     --noautoconsole -v
 ```
 
+## VM viewer
+```bash
+virt-viewer -c qemu:///system xenial
+```
+
+## VM management
+```bash
+virsh -c qemu:///system list
+virsh -c qemu:///system start <vm-name>
+virsh -c qemu:///system shutdown <vm-name>
+virsh -c qemu:///system reboot <vm-name>
+virsh -c qemu:///system save <vm-name> <vm-save-name>.state
+virsh -c qemu:///system restore <vm-name> <vm-save-name>.state
+```
+
 ## Control guest CPU & NUMA with kvm/xen
 ### Querying host CPU / NUMA topology
 ```bash
@@ -50,3 +65,4 @@ virsh vcpupin <vcpu-id> <cpu-id>
 
 ## References
 https://www.berrange.com/posts/2010/02/12/controlling-guest-cpu-numa-affinity-in-libvirt-with-qemu-kvm-xen/
+https://help.ubuntu.com/lts/serverguide/libvirt.html
