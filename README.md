@@ -34,6 +34,7 @@ virsh -c qemu:///system shutdown <vm-name>
 virsh -c qemu:///system reboot <vm-name>
 virsh -c qemu:///system save <vm-name> <vm-save-name>.state
 virsh -c qemu:///system restore <vm-name> <vm-save-name>.state
+virsh -c qemu:///system destroy <vm-name>
 ```
 
 ## Create a VM using libvirt XML
