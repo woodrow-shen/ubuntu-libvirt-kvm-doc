@@ -36,6 +36,32 @@ virsh -c qemu:///system save <vm-name> <vm-save-name>.state
 virsh -c qemu:///system restore <vm-name> <vm-save-name>.state
 ```
 
+## Create a VM using libvirt XML
+### Dump XML from existed domain
+```bash
+virsh dumpxml <vm-name>
+```
+
+### Create a VM
+```bash
+virsh define <vm-name>.xml
+```
+
+### Create & Run a VM
+```bash
+virsh create <vm-name>.xml
+```
+
+### Edit VMs Configs
+```bash
+virsh edit <vm-name>
+```
+
+### Delete VMs Configs
+```bash
+virsh undefine <vm-name>
+```
+
 ## Control guest CPU & NUMA with kvm/xen
 ### Querying host CPU / NUMA topology
 ```bash
